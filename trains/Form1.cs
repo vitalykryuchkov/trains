@@ -11,15 +11,15 @@ namespace trains
         {
             InitializeComponent();
         }
-        private void listBox2_SelectedIndexChanged(object sender, EventArgs e) //правое окно
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e) //ГЇГ°Г ГўГ®ГҐ Г®ГЄГ­Г®
         {
 
         }
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e) //левое окно
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e) //Г«ГҐГўГ®ГҐ Г®ГЄГ­Г®
         {
 
         }
-        private void button1_Click(object sender, EventArgs e) //сгенерировать
+        private void button1_Click(object sender, EventArgs e) //Г±ГЈГҐГ­ГҐГ°ГЁГ°Г®ГўГ ГІГј
         {
             Random random = new Random();
             using (StreamWriter writer = new StreamWriter(path))
@@ -46,7 +46,7 @@ namespace trains
                 }
             }
         }
-        private void button2_Click(object sender, EventArgs e) //Отсортировать
+        private void button2_Click(object sender, EventArgs e) //ГЋГІГ±Г®Г°ГІГЁГ°Г®ГўГ ГІГј
         {
             List<string> sortedItems = new List<string>();
             foreach (string item in listBox1.Items)
@@ -66,22 +66,22 @@ namespace trains
             }
             textBox1.Text = "The sorting was successful";
         }
-        private void button3_Click(object sender, EventArgs e) //Очистить
+        private void button3_Click(object sender, EventArgs e) //ГЋГ·ГЁГ±ГІГЁГІГј
         {
             listBox1.Items.Clear();
             listBox2.Items.Clear();
             textBox1.Clear();
             textBox2.Clear();
         }
-        private void textBox2_TextChanged(object sender, EventArgs e) //ввод номера поезда
+        private void textBox2_TextChanged(object sender, EventArgs e) //ГўГўГ®Г¤ Г­Г®Г¬ГҐГ°Г  ГЇГ®ГҐГ§Г¤Г 
         {
 
         }
-        private void textBox1_TextChanged(object sender, EventArgs e) //вывод текста об операциях
+        private void textBox1_TextChanged(object sender, EventArgs e) //ГўГ»ГўГ®Г¤ ГІГҐГЄГ±ГІГ  Г®ГЎ Г®ГЇГҐГ°Г Г¶ГЁГїГµ
         {
 
         }
-        private void button4_Click(object sender, EventArgs e) //поиск поезда
+        private void button4_Click(object sender, EventArgs e) //ГЇГ®ГЁГ±ГЄ ГЇГ®ГҐГ§Г¤Г 
         {
             string[] text = File.ReadAllLines(path);
             foreach (string item in text)
@@ -89,6 +89,10 @@ namespace trains
                 if (item.Contains(textBox2.Text))
                 {
                     listBox2.Items.Add((string)item);
+                }
+                if (!item.Contains(textBox2.Text))
+                {
+                    textBox1.Text = "Train not found";
                 }
             }
         }
